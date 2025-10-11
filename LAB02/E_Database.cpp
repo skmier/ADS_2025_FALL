@@ -21,15 +21,17 @@ public:
     }
 
     void push_back(string val){
+        Node* newNode = new Node(val);
         if(!head){
-            head = new Node(val);
+            head = newNode;
             return;
         }
-        else if(head->data != val){
-            Node* newNode = new Node(val);
-            newNode->next = head;
-            head = newNode;
-        }
+        Node* current = head;
+        while (current->next)
+        {
+            current = current->next;
+        }   
+        current->next = newNode;
     }
 
 
